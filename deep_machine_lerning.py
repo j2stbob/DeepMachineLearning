@@ -51,9 +51,7 @@ class Model():          # example: Model([Layer(1), Layer(2)])
         for i in range(0, len(self.layers) - 1):
             if type(self.layers[i]) == InputLayer:
                 x = self.layers[i].forward(x)
-            else:
-                x = self.layers[i].forward(x)
-
+        
         return self.sigmoid(self.layers[-1].forward(x))
 
     def error(self):                # predict error
