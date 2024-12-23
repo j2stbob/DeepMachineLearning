@@ -70,7 +70,7 @@ class Model():          # example: Model([Layer(1), Layer(2)])
                 for neuron in all_neurons:
                     old_error = self.error()
                     neuron.k += step
-                    if self.error() > old_error:                        # I just compared the old error and the new one,                                                                       r
+                    if self.error() > old_error:                        # I just compared the old error and the new one,                                                               
                         neuron.k -= step * 2                                # than the new one, i just took *2 steps back                       
 
             print('Epoch:', i, 'Error:', old_error)
