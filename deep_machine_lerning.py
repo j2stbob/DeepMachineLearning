@@ -89,12 +89,10 @@ x4 = data['Age'].fillna(data['Age'].mean())
 
 y = data['Survived']
 
-
-
 model = Model([
-    InputLayer(4),              # idk how to write this, weeeeeell example: Layer(2) ----> 2 neurons in first layer
+    InputLayer(4),              # idk how to write this, weeeeeell example: Inputlayer there should be as many first neurons as you indicated in X's 
     Layer(12),                                                                # Layer(4)   -----> 4 neurons in second layer
-    Layer(1)                                                                       # Layer(1)   -----> 1 layer of neurons
+    Layer(1)                                                                       # Layer(1)   -----> end layer of neurons consisting of 1 neuron
 ])
 
 x = []
