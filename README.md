@@ -1,7 +1,37 @@
-In this project, I tried to create my own model from scratch without loaded libraries associated with machine learning. She works on the teaching method with the teacher. In the main file, you can set your values ​​for this model and look at the result. 0 - died. 1 - survived.
-I fed her great values. And the answer was surprisingly accurate. But the interface and filling were terrible. So, I returned the version easier. But if you are interested in considering a deeper version, then you can write to me in Discord, I will throw you this file. (Discord j2stbob) :3
+В этом проекте я попытался создать свою собственную модель с нуля без загруженных библиотек связанных с машинным обучением. Она работает с методом обучения с учителем. В основном файле вы можете установить свои значения для этой модели и посмотреть на результат. 0 - умер. 1 - выжил.У меня есть чуть-другой код с более обширными данными. И ответ был на удивление точным. Но интерфейс и заполнение были ужасными. Так, что вернул версию легче для восприятия. Но если вы заинтересованы в рассмотрении более глубокой версии, то посмотрите другую ветку different_ui. 
+Те кто хочет разобратся как она работает, специально для вас я сделал документацию:
 
-For those who want to find out how this model works
-In short, I explain that we send our data from the date to the first layer, the number of neurons should be similar to the number x for this, which I created support InputLayer. Our neurons are based on linear regression, that is, the model itself was actually created for many known functions y = kx + b. So some weight is formed. It is taken from the class of neurons. And then it just goes through the following layers.
+Neuron - класс представляющий нейрон
+ее методы это:
+ output: вычисляет выход веса.
+------------------------------------------------------------------------------------
+Layer - класс представляет слой для нейронов
+ее методы:
+ forward: продвигает нейрон в следующий слой.
+------------------------------------------------------------------------------------
+На Inputlayer можете не смотреть это - костыль по факту представляет тоже самое что и класс Layer
+Он просто распределяет первый слой 
+------------------------------------------------------------------------------------
+Model - класс самой модели
+ее методы:
+ predict: пытается предугадать выход нейрона.
+ error: вычисляет ошибку.
+ training: обучает модель указанной количеством эпох с заданным размером шага(понижает ошибку).
+------------------------------------------------------------------------------------
+Подготовка данных:
 
- You can play with existing parameters to resolve the era or take a smaller step, sometimes this happens so that in this case the error begins to occur in the cycles, track the era and make it less, and there is no sense in learning.
+Загрузите файл с titanic.csv
+Загрузите deep_machine_learning.py
+Зайдите в main.py
+Установите параметры модели, используя метод training задайте эпохи и размер шага к примеру [200, 0.001] (Эпоха, шаг)
+Установите параметры для вашего бедолаги, используя метод predict, к примеру [310, 1, 0, 24] (Цена за билет, престижность каюты, пол, возраст).
+ 
+
+Модель инициализация(model):
+
+Инициализирую модель с использованием Layer из 4 нейронов, скрытым слоем из 12 нейронов и выходным слоем 1 нейрона. Можете создать еще один слой к примеру там из 7 нейронов | Layer(7) я х3
+
+
+Для тех, кто хочет выяснить, какой принцип этой модели, я объясняю.  Этот алгоритм основан на линейной регрессии, то есть сама модель была создана фактически для многих известной функцией y = kx + b. Поскольку она должна ответить на да(1) или нет(0), тут надо было использовать метод обратного распространения ошибки, который подразумевает использование сигмоиды чтобы преобразовать ответ в 0 или 1. Помоему это все я х3.
+
+
